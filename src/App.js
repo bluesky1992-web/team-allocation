@@ -1,7 +1,15 @@
+import Employee from "./Employees";
+import Footer from "./Footer";
+import Header from "./Header";
 import "./App.css";
 
-function App() {
-  return <div className=""></div>;
+export default function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Employee />
+      <Footer />
+    </div>
+  );
 }
 
-export default App;
