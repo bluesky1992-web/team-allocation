@@ -1,8 +1,9 @@
 import { useState } from "react";
 import femaleProfile from "./images/femaleProfile.jpg";
-import maleProfile from "./images/femaleProfile.jpg";
+import maleProfile from "./images/maleProfile.jpg";
 
 const Employee = () => {
+  const [selectedTeam, setTeam] = useState("TeamB");
   const [employees, setEmployees] = useState([
     {
       id: 1,
@@ -23,7 +24,7 @@ const Employee = () => {
       fullName: "david mornore",
       designation: "JavaScript Developer",
       gender: "female",
-      teamName: "TeamA",
+      teamName: "TeamC",
     },
     {
       id: 4,
@@ -58,41 +59,58 @@ const Employee = () => {
       fullName: "jamal abdullah ",
       designation: "JavaScript Developer",
       gender: "male",
-      teamName: "TeamA",
+      teamName: "TeamD",
     },
     {
       id: 9,
       fullName: "maryam kamal ",
       designation: "JavaScript Developer",
       gender: "female",
-      teamName: "TeamA",
+      teamName: "TeamD",
     },
     {
       id: 10,
       fullName: "alechandro mossolini ",
       designation: "Node.js Developer",
       gender: "male",
-      teamName: "TeamA",
+      teamName: "TeamD",
     },
     {
       id: 11,
       fullName: "Frank Jones",
       designation: "JavaScript Developer",
       gender: "female",
-      teamName: "TeamA",
+      teamName: "TeamC",
     },
     {
       id: 12,
       fullName: "Jerry Jones",
       designation: "JavaScript Developer",
       gender: "male",
-      teamName: "TeamA",
+      teamName: "TeamC",
     },
   ]);
+  function handleTeamSelectionChange(event) {
+   
+    console.log(event.target.value);
+    setTeam(event.target.value);
+   
+  }
+
   return (
     <main className="container">
-      <div className="row justify-content-center mt-3 mb-3">
-        <div className="col-8">
+      <div className="row justify-content-center mt-3 mb-3 ">
+        <div className="col-6">
+          <select
+            className="form-select form-select-lg mb-3"
+            value={selectedTeam}
+            onChange={handleTeamSelectionChange}
+          >
+            <option value="TeamA">Team A</option>
+            <option value="TeamB"> TeamB</option>
+            <option value="TeamC">TeamC</option>
+            <option value="TeamD">TeamD</option>
+          </select>
           <div class="card-collection">
             {employees.map((employee) => (
               <div
